@@ -1,0 +1,9 @@
+server:
+  port: 8888
+  servlet:
+    context-path: /ap
+spring:
+  mvc:
+    pathmatch:
+      # for swagger 3 error handling(spring boot version greater than 2.6)
+      matching-strategy: ant-path-matcher
