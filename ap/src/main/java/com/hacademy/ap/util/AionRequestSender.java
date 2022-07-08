@@ -33,6 +33,11 @@ public class AionRequestSender {
 		Request request = new Request.Builder().url(url).post(body).build();
 		return client.newCall(request).execute();
 	}
+	public Response postByFormData(String url, String json) throws IOException {
+		RequestBody body = RequestBody.Companion.create(json, MediaType.get("application/www-x-form-urlencoded"));
+		Request request = new Request.Builder().url(url).post(body).build();
+		return client.newCall(request).execute();
+	}
 	public Response put(String url, String json) throws IOException {
 		RequestBody body = RequestBody.Companion.create(json, MediaType.get("application/json"));
 		Request request = new Request.Builder().url(url).put(body).build();
