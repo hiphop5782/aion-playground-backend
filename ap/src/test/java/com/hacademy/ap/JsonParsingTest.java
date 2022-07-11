@@ -179,6 +179,16 @@ public class JsonParsingTest {
 		load("stringed_instrument", "무기", "현악기", "유일");
 		load("aether_key", "무기", "기동쇠", "유일");
 		load("paint_rings", "무기", "화구", "유일");
+//		load("clothes", "방어구", "의복", "유일");
+		load("cloth-1", "방어구", "로브", "유일");
+		load("cloth-2", "방어구", "로브", "유일");
+		load("leather-1", "방어구", "가죽", "유일");
+		load("leather-2", "방어구", "가죽", "유일");
+		load("chain-1", "방어구", "사슬", "유일");
+		load("chain-2", "방어구", "사슬", "유일");
+		load("plate-1", "방어구", "판금", "유일");
+		load("plate-2", "방어구", "판금", "유일");
+		load("shield", "방어구", "방패", "유일");
 	}
 	
 }
