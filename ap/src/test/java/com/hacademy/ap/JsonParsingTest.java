@@ -163,32 +163,38 @@ public class JsonParsingTest {
 		mapper.writeValue(new File("temp", enType+".json"), list);
 	}
 	
+	public void load(String enType, String korType, String korSubType, String requiredGrade, int minLevel, int maxLevel) throws JsonMappingException, JsonProcessingException, FileNotFoundException, IOException {
+		List<AionItemJsonWrapper> list = parser.parse(parser.read(new File("temp", enType+".txt")), korType, korSubType, requiredGrade, minLevel, maxLevel);
+		ObjectMapper mapper = new ObjectMapper();
+		mapper.writeValue(new File("temp", enType+".json"), list);
+	}
+	
 	@Test
 	public void loadAll() throws JsonMappingException, JsonProcessingException, FileNotFoundException, IOException {
-		load("dagger", "무기", "단검", "유일");
-		load("sword", "무기", "장검", "유일");
-		load("mace", "무기", "전곤", "유일");
-		load("staff", "무기", "법봉", "유일");
-		load("spellbook", "무기", "법서", "유일");
-		load("orb", "무기", "보옥", "유일");
-		load("greatsword", "무기", "대검", "유일");
-		load("polearm", "무기", "창", "유일");
-		load("bow", "무기", "활", "유일");
-		load("aether_revolver", "무기", "마력총", "유일");
-		load("aether_cannon", "무기", "마력포", "유일");
-		load("stringed_instrument", "무기", "현악기", "유일");
-		load("aether_key", "무기", "기동쇠", "유일");
-		load("paint_rings", "무기", "화구", "유일");
-//		load("clothes", "방어구", "의복", "유일");
-		load("cloth-1", "방어구", "로브", "유일");
-		load("cloth-2", "방어구", "로브", "유일");
-		load("leather-1", "방어구", "가죽", "유일");
-		load("leather-2", "방어구", "가죽", "유일");
-		load("chain-1", "방어구", "사슬", "유일");
-		load("chain-2", "방어구", "사슬", "유일");
-		load("plate-1", "방어구", "판금", "유일");
-		load("plate-2", "방어구", "판금", "유일");
-		load("shield", "방어구", "방패", "유일");
+		load("dagger", "무기", "단검", "유일", 1, 60);
+		load("sword", "무기", "장검", "유일", 1, 60);
+		load("mace", "무기", "전곤", "유일", 1, 60);
+		load("staff", "무기", "법봉", "유일", 1, 60);
+		load("spellbook", "무기", "법서", "유일", 1, 60);
+		load("orb", "무기", "보옥", "유일", 1, 60);
+		load("greatsword", "무기", "대검", "유일", 1, 60);
+		load("polearm", "무기", "창", "유일", 1, 60);
+		load("bow", "무기", "활", "유일", 1, 60);
+		load("aether_revolver", "무기", "마력총", "유일", 1, 60);
+		load("aether_cannon", "무기", "마력포", "유일", 1, 60);
+		load("stringed_instrument", "무기", "현악기", "유일", 1, 60);
+		load("aether_key", "무기", "기동쇠", "유일", 1, 60);
+		load("paint_rings", "무기", "화구", "유일", 1, 60);
+//		load("clothes", "방어구", "의복", "유일", 1, 60);
+		load("cloth-1", "방어구", "로브", "유일", 1, 60);
+		load("cloth-2", "방어구", "로브", "유일", 1, 60);
+		load("leather-1", "방어구", "가죽", "유일", 1, 60);
+		load("leather-2", "방어구", "가죽", "유일", 1, 60);
+		load("chain-1", "방어구", "사슬", "유일", 1, 60);
+		load("chain-2", "방어구", "사슬", "유일", 1, 60);
+		load("plate-1", "방어구", "판금", "유일", 1, 60);
+		load("plate-2", "방어구", "판금", "유일", 1, 60);
+		load("shield", "방어구", "방패", "유일", 1, 60);
 	}
 	
 }

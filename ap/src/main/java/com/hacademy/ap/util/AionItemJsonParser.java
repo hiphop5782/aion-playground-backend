@@ -58,6 +58,31 @@ public class AionItemJsonParser {
 		return list;
 	}
 	
+	public List<AionItemJsonWrapper> parse(String json, String type, String subType, String requiredGrade, int minLevel, int maxLevel) throws JsonMappingException, JsonProcessingException{
+		AionItemJsonResponseVO responseVO = mapper.readValue(json, AionItemJsonResponseVO.class);
+		List<AionItemJsonWrapper> list = new ArrayList<>();
+		
+		for(String[] row : responseVO.getData()) {
+			try {
+				list.add(parseLine(row, type, subType, requiredGrade, minLevel, maxLevel));
+			}
+			catch(RuntimeException e) {
+				//skip
+			}
+		}
+		return list;
+	}
+	
+	private AionItemJsonWrapper parseLine(String[] row, String type, String subType, String requiredGrade, int minLevel,
+			int maxLevel) {
+		int level = Integer.parseInt(row[3]);
+		int min = Math.min(minLevel, maxLevel);
+		int max = Math.max(minLevel, maxLevel);
+		if(level < min || level > max) throw new RuntimeException("level range error");
+		
+		return parseLine(row, type, subType, requiredGrade);
+	}
+
 	private AionItemJsonWrapper parseLine(String[] row, String type, String subType, String requiredGrade) {
 		NameAndGrade ng = parseNameAndGrade(row[2], requiredGrade);
 		return AionItemJsonWrapper.builder()
